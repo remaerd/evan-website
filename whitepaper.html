@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security Whitepaper — Frienday End-to-End Encryption</title>
-  <meta name="description" content="A technical description of Frienday's end-to-end encryption framework: key derivation, message encryption, plan sealing, forward secrecy, and key recovery." />
+  <title>Security Whitepaper — Project Evan End-to-End Encryption</title>
+  <meta name="description" content="A technical description of Project Evan's end-to-end encryption framework: key derivation, message encryption, plan sealing, forward secrecy, and key recovery." />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 </head>
@@ -13,7 +13,7 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo">Friend<span>ay</span></a>
+      <a href="index.html" class="nav__logo">Project <span>Evan</span></a>
       <ul class="nav__links">
         <li><a href="index.html#features">Features</a></li>
         <li><a href="index.html#download">Download</a></li>
@@ -32,7 +32,7 @@
     <div class="container">
       <span class="doc-hero__tag">Technical Whitepaper · v1.0 · April 2026</span>
       <h1>End-to-End Encryption Framework</h1>
-      <p>A technical description of how Frienday protects your messages, plans, and social data.</p>
+      <p>A technical description of how Project Evan protects your messages, plans, and social data.</p>
     </div>
   </section>
 
@@ -67,19 +67,19 @@
         <article class="doc-content">
 
           <h2 id="abstract">1. Abstract</h2>
-          <p>Frienday implements a layered end-to-end encryption (E2EE) framework that ensures messages, plan content, and optional calendar data can only be decrypted by the intended recipient devices. Frienday's servers act as a blind relay: they route and store ciphertext but possess no cryptographic material that would allow them to decrypt user content, even under legal compulsion or in the event of a server-side breach.</p>
-          <p>This document describes the key-agreement protocols, symmetric encryption schemes, group key distribution mechanism, and key-recovery strategy employed by Frienday. It is intended for security researchers, independent auditors, and technically informed users who wish to verify our security claims independently.</p>
+          <p>Project Evan implements a layered end-to-end encryption (E2EE) framework that ensures messages, plan content, and optional calendar data can only be decrypted by the intended recipient devices. Project Evan's servers act as a blind relay: they route and store ciphertext but possess no cryptographic material that would allow them to decrypt user content, even under legal compulsion or in the event of a server-side breach.</p>
+          <p>This document describes the key-agreement protocols, symmetric encryption schemes, group key distribution mechanism, and key-recovery strategy employed by Project Evan. It is intended for security researchers, independent auditors, and technically informed users who wish to verify our security claims independently.</p>
 
           <div class="callout">
-            <p><strong>Version note:</strong> This whitepaper describes the architecture as of Frienday v1.0 (April 2026). We are committed to updating this document whenever material changes to the encryption architecture are made and to publishing independent third-party audit reports when completed.</p>
+            <p><strong>Version note:</strong> This whitepaper describes the architecture as of Project Evan v1.0 (April 2026). We are committed to updating this document whenever material changes to the encryption architecture are made and to publishing independent third-party audit reports when completed.</p>
           </div>
 
           <h2 id="threat-model">2. Threat Model</h2>
           <h3>2.1 Adversaries we protect against</h3>
           <ul>
             <li><strong>Network attacker:</strong> passive eavesdropper or active man-in-the-middle on the transport layer. All API traffic uses TLS 1.3 with certificate pinning in the mobile client. Even if TLS were broken, the encrypted payload remains opaque.</li>
-            <li><strong>Compromised server:</strong> a Frienday server operator, rogue employee, or attacker who gains full read access to server-side databases and message queues. Servers store only ciphertext; no private key material is ever uploaded.</li>
-            <li><strong>Legal compulsion:</strong> a government order compelling Frienday to produce message content. Because the server does not hold decryption keys, compliance with such an order cannot yield plaintext message content.</li>
+            <li><strong>Compromised server:</strong> a Project Evan server operator, rogue employee, or attacker who gains full read access to server-side databases and message queues. Servers store only ciphertext; no private key material is ever uploaded.</li>
+            <li><strong>Legal compulsion:</strong> a government order compelling Project Evan to produce message content. Because the server does not hold decryption keys, compliance with such an order cannot yield plaintext message content.</li>
             <li><strong>Metadata analysis:</strong> an adversary studying communication patterns. We acknowledge metadata (who communicates with whom, and when) is visible to the server. Mitigations include sealed-sender envelopes and padding.</li>
           </ul>
           <h3>2.2 Adversaries outside scope</h3>
@@ -105,9 +105,9 @@
           </table>
 
           <h2 id="identity-keys">4. Identity &amp; Device Keys</h2>
-          <p>Each Frienday user has a <strong>long-term identity key pair</strong> generated locally on first account creation:</p>
+          <p>Each Project Evan user has a <strong>long-term identity key pair</strong> generated locally on first account creation:</p>
           <ul>
-            <li><code>IK_pub</code> / <code>IK_priv</code>: Ed25519 signing key pair. The public key is published to the Frienday key server and signed by the user's device attestation.</li>
+            <li><code>IK_pub</code> / <code>IK_priv</code>: Ed25519 signing key pair. The public key is published to the Project Evan key server and signed by the user's device attestation.</li>
           </ul>
           <p>Each enrolled device additionally generates:</p>
           <ul>
@@ -117,7 +117,7 @@
           <p>Private keys never leave the device. The key server holds only public components: <code>IK_pub</code>, <code>SPK_pub</code> (with signature), and the available <code>OPK_pub</code> pool.</p>
 
           <h2 id="x3dh">5. Initial Key Agreement (Extended Triple Diffie-Hellman)</h2>
-          <p>When Alice sends the first message to Bob, Frienday uses the <strong>X3DH</strong> protocol (Signal Protocol specification) to establish a shared secret:</p>
+          <p>When Alice sends the first message to Bob, Project Evan uses the <strong>X3DH</strong> protocol (Signal Protocol specification) to establish a shared secret:</p>
           <ol>
             <li>Alice fetches Bob's key bundle from the server: <code>IK_B</code>, <code>SPK_B</code>, one <code>OPK_B</code>.</li>
             <li>Alice generates an ephemeral key pair <code>EK_A</code>.</li>
@@ -163,7 +163,7 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
           </ol>
 
           <h2 id="group-keys">8. Group Plan Key Distribution</h2>
-          <p>For multi-participant plans, Frienday uses a <strong>Sender Keys</strong> mechanism (analogous to Signal's group messaging protocol):</p>
+          <p>For multi-participant plans, Project Evan uses a <strong>Sender Keys</strong> mechanism (analogous to Signal's group messaging protocol):</p>
           <ol>
             <li>The plan creator generates a <strong>Sender Key Record</strong> containing a random chain key and a signing key pair.</li>
             <li>The Sender Key Record is distributed to each participant by encrypting it individually with each participant's established Double Ratchet session key.</li>
@@ -180,17 +180,17 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
           </ul>
 
           <h2 id="key-backup">10. Key Backup &amp; Recovery</h2>
-          <p>Because Frienday holds no private keys, users must have a recovery mechanism to restore access to their encrypted history on new devices:</p>
+          <p>Because Project Evan holds no private keys, users must have a recovery mechanism to restore access to their encrypted history on new devices:</p>
           <h3>10.1 Recovery Key</h3>
-          <p>During onboarding, users are prompted to save a <strong>Recovery Key</strong>: a 128-bit random secret encoded as a 24-word BIP-39 mnemonic. This key is never transmitted to Frienday and is the user's sole responsibility.</p>
+          <p>During onboarding, users are prompted to save a <strong>Recovery Key</strong>: a 128-bit random secret encoded as a 24-word BIP-39 mnemonic. This key is never transmitted to Project Evan and is the user's sole responsibility.</p>
           <h3>10.2 Encrypted Key Backup</h3>
-          <p>The device's identity key, signed pre-keys, and ratchet state are serialised, encrypted with <code>AES-256-GCM</code> using a key derived from the Recovery Key via <code>Argon2id</code>, and uploaded as an opaque blob to Frienday's key backup service. Frienday cannot decrypt this blob.</p>
+          <p>The device's identity key, signed pre-keys, and ratchet state are serialised, encrypted with <code>AES-256-GCM</code> using a key derived from the Recovery Key via <code>Argon2id</code>, and uploaded as an opaque blob to Project Evan's key backup service. Project Evan cannot decrypt this blob.</p>
           <p>Argon2id parameters: <code>m=64 MiB, t=3 iterations, p=4 lanes</code>. These parameters are stored alongside the ciphertext to allow future upgrades.</p>
           <h3>10.3 Multi-Device Sync</h3>
           <p>Linking a new device requires either scanning a QR code from an existing active device (which transfers keys over an authenticated, ephemeral E2EE channel) or entering the Recovery Key mnemonic and decrypting the key backup blob.</p>
 
           <h2 id="server-role">11. Server Trust Model</h2>
-          <p>Frienday servers are <strong>honest-but-curious</strong> in the protocol model: they correctly route messages but are assumed to log and inspect everything they receive. Our protocol is designed so that this does not compromise content privacy:</p>
+          <p>Project Evan servers are <strong>honest-but-curious</strong> in the protocol model: they correctly route messages but are assumed to log and inspect everything they receive. Our protocol is designed so that this does not compromise content privacy:</p>
           <ul>
             <li>Servers receive only ciphertext payloads and encrypted key bundles.</li>
             <li>Servers do not participate in key agreement and do not hold private keys.</li>
@@ -211,8 +211,8 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
           <p><strong>Break-in recovery (post-compromise security)</strong> ensures that after a compromise is healed, future messages return to confidentiality. The DH ratchet provides this: once a compromised device generates a new ratchet key pair and exchanges it with the other party, the attacker — even holding the previously compromised chain keys — cannot derive future message keys without the new DH output.</p>
 
           <h2 id="audit">13. External Audit Commitment</h2>
-          <p>Frienday is committed to subjecting this encryption framework to independent third-party security audits before reaching 10,000 active users and on a recurring annual basis thereafter. Audit reports, including finding summaries and remediation status, will be published at <strong>frienday.app/security-audits</strong>.</p>
-          <p>We welcome responsible disclosure of security vulnerabilities. Please report findings to <strong>security@frienday.app</strong>. We operate a coordinated disclosure programme with a 90-day remediation window before public disclosure.</p>
+          <p>Project Evan is committed to subjecting this encryption framework to independent third-party security audits before reaching 10,000 active users and on a recurring annual basis thereafter. Audit reports, including finding summaries and remediation status, will be published at <strong>projectevan.app/security-audits</strong>.</p>
+          <p>We welcome responsible disclosure of security vulnerabilities. Please report findings to <strong>security@projectevan.app</strong>. We operate a coordinated disclosure programme with a 90-day remediation window before public disclosure.</p>
 
           <h2 id="known-limitations">14. Known Limitations</h2>
           <ul>
@@ -243,7 +243,7 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
     <div class="container">
       <div class="footer__inner">
         <div class="footer__brand">
-          <div class="footer__logo">Friend<span>ay</span></div>
+          <div class="footer__logo">Project <span>Evan</span></div>
           <p>Making plans, building friendships, and strengthening communities — protected by end-to-end encryption and grounded in social responsibility.</p>
         </div>
         <div class="footer__col">
@@ -271,7 +271,7 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
         </div>
       </div>
       <div class="footer__bottom">
-        <p>&copy; 2026 Frienday CIC. All rights reserved.</p>
+        <p>&copy; 2026 Project Evan CIC. All rights reserved.</p>
         <span class="footer__cic">Registered Community Interest Company</span>
       </div>
     </div>

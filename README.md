@@ -1,6 +1,6 @@
-# Frienday Website
+# Project Evan Website
 
-Public-facing website for **Frienday CIC** — a Community Interest Company building social planning technology.
+Public-facing website for **Project Evan CIC** — a Community Interest Company building social planning technology.
 
 ## Pages
 
@@ -15,14 +15,14 @@ Public-facing website for **Frienday CIC** — a Community Interest Company buil
 ## Structure
 
 ```
-frienday-website/
+project evan-website/
 ├── index.html
 ├── privacy.html
 ├── terms.html
 ├── whitepaper.html
 ├── commitment.html
 ├── css/
-│   └── styles.css        # Shared responsive stylesheet (Frienday brand tokens)
+│   └── styles.css        # Shared responsive stylesheet (Project Evan brand tokens)
 ├── js/
 │   └── main.js           # Nav toggle, active link, smooth scroll
 └── assets/
@@ -49,7 +49,7 @@ This site is designed to be hosted on any static hosting service (GitHub Pages, 
 
 1. Push to the `main` branch of this repo.
 2. Go to **Settings → Pages** → Source: `main` branch, root folder `/`.
-3. Site will be live at `https://<org>.github.io/frienday-website/`.
+3. Site will be live at `https://<org>.github.io/project evan-website/`.
 
 ## Store Links
 
@@ -65,4 +65,4 @@ Design tokens sourced from Figma (updated 2026-04-19):
 
 ## Legal
 
-All content © 2026 Frienday CIC. Registered in England and Wales as a Community Interest Company.
+All content © 2026 Project Evan CIC. Registered in England and Wales as a Community Interest Company.
