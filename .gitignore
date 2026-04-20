@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependency directories (if a build step is added later)
+node_modules/
+
+# Build output
+dist/
+out/
+
+# Environment files
+.env
+.env.local
