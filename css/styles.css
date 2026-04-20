@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
 /* ============================================================
    Project Evan Website — Shared Stylesheet
    Brand palette from Figma tokens (updated 2026-04-19)
@@ -45,9 +47,6 @@ body {
 img { max-width: 100%; display: block; }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
-/* ---------- Google Font ---------- */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* ---------- Utility ---------- */
 .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
