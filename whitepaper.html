@@ -11,21 +11,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">Project <span>Evan</span></a>
-      <ul class="nav__links">
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#download">Download</a></li>
-        <li><a href="whitepaper.html" class="active">Security</a></li>
-        <li><a href="commitment.html">Our Mission</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- HERO -->
   <section class="doc-hero">
@@ -239,44 +225,8 @@ CK_n+1 = HKDF(CK_n, info="chain_key")</code></pre>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <div class="footer__logo">Project <span>Evan</span></div>
-          <p>Making plans, building friendships, and strengthening communities — protected by end-to-end encryption and grounded in social responsibility.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Product</h4>
-          <ul>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#download">Download iOS</a></li>
-            <li><a href="index.html#download">Download Android</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="commitment.html">Our Mission</a></li>
-            <li><a href="commitment.html#social">Social Impact</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="whitepaper.html">Whitepaper</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Project Evan CIC. All rights reserved.</p>
-        <span class="footer__cic">Registered Community Interest Company</span>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

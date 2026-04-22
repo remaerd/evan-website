@@ -17,6 +17,7 @@ Public-facing website for **Project Evan CIC** — a Community Interest Company 
 ```
 project evan-website/
 ├── index.html
+├── business.html
 ├── privacy.html
 ├── terms.html
 ├── whitepaper.html
@@ -24,22 +25,34 @@ project evan-website/
 ├── css/
 │   └── styles.css        # Shared responsive stylesheet (Project Evan brand tokens)
 ├── js/
-│   └── main.js           # Nav toggle, active link, smooth scroll
+│   └── main.js           # Theme + shared partial loader + nav interactions
+├── partials/
+│   ├── navbar.html       # Reusable navbar used by all pages
+│   └── footer.html       # Reusable footer used by all pages
 └── assets/
     └── favicon.svg
 ```
 
 ## Development
 
-No build step required — pure HTML/CSS/JS. Open `index.html` directly in a browser, or serve with any static server:
+Use Vite for local development and preview:
 
 ```bash
-# Python
-python3 -m http.server 8080
+# install dependencies
+npm install
 
-# Node (npx)
-npx serve .
+# run local dev server
+npm run dev
+
+# production build
+npm run build
+
+# preview built output
+npm run preview
 ```
+
+Default Vite dev URL is shown in terminal (typically http://localhost:5173).
+The production preview is served with the GitHub Pages project-site base path at `http://localhost:4173/evan-website/`.
 
 ## Deployment
 
@@ -49,7 +62,7 @@ This site is designed to be hosted on any static hosting service (GitHub Pages, 
 
 1. Push to the `main` branch of this repo.
 2. Go to **Settings → Pages** → Source: `main` branch, root folder `/`.
-3. Site will be live at `https://<org>.github.io/project evan-website/`.
+3. Site will be live at `https://<org>.github.io/evan-website/`.
 
 ## Store Links
 
@@ -57,10 +70,10 @@ Download links in `index.html` currently point to `#` — update with live App S
 
 ## Branding
 
-Design tokens sourced from Figma (updated 2026-04-19):
+Design tokens sourced from Figma (updated 2026-04-21):
 - Primary green: `#216A4D`
-- Brand dark: `#0E3B2E`
-- Accent orange: `#FF6B3D`
+- Primary container: `#A9F2CC`
+- Inverse surface: `#2C322E`
 - Typeface: DM Sans (Google Fonts)
 
 ## Legal

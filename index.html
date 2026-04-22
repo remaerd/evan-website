@@ -11,26 +11,13 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 </head>
 <body>
 
   <!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo">Project <span>Evan</span></a>
-      <ul class="nav__links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#download">Download</a></li>
-        <li><a href="whitepaper.html">Security</a></li>
-        <li><a href="commitment.html">Our Mission</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <div id="site-nav"></div>
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
@@ -38,20 +25,18 @@
       <div class="hero__inner">
         <div class="hero__copy">
           <div class="hero__eyebrow">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="7" cy="7" r="3" fill="#A8F5D6"/>
-            </svg>
+            <span class="material-icons" aria-hidden="true">circle</span>
             Now available on iOS &amp; Android
           </div>
           <h1 class="hero__title" id="hero-title">
-            Make plans.<br/>
-            <span>Stay connected.</span>
+            A healthier social & dating life on<br/>
+            <span>Project Evan.</span>
           </h1>
-          <p class="hero__desc">
+          <!-- <p class="hero__desc">
             Project Evan brings your social life to life — discover activities together,
             co-ordinate plans effortlessly, and build the friendships that actually stick.
             All protected by end-to-end encryption.
-          </p>
+          </p> -->
           <div class="store-badges" id="download">
             <!-- Apple App Store -->
             <a href="#" class="store-badge" aria-label="Download on the App Store">
@@ -95,37 +80,37 @@
   <section class="section" id="features" aria-labelledby="features-title">
     <div class="container">
       <div class="section-heading text-center">
-        <h2 id="features-title">Everything you need to stay social</h2>
+        <h2 id="features-title">Meeting friends, offline.</h2>
         <p>Project Evan is built around three simple ideas: discover, plan, and connect — safely.</p>
       </div>
       <div class="features">
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">🗓️</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">event</span></div>
           <h3 class="feature-card__title">Smart Plan Matching</h3>
           <p class="feature-card__desc">Our recommendation engine surfaces plans that match your schedule, interests, and social circle — no more group-chat paralysis.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">🔒</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">lock</span></div>
           <h3 class="feature-card__title">End-to-End Encrypted</h3>
           <p class="feature-card__desc">Every message and plan detail is encrypted with keys only you and your friends hold. Project Evan cannot read your conversations.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">📅</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">calendar_month</span></div>
           <h3 class="feature-card__title">Calendar Sync</h3>
           <p class="feature-card__desc">Connect your Google or Outlook calendar so Project Evan only suggests plans when you're actually free — with your permission.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">🌍</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">public</span></div>
           <h3 class="feature-card__title">Discover Locally</h3>
           <p class="feature-card__desc">Browse curated activities and experiences near you, contributed by a community that shares your values.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">🤝</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">people</span></div>
           <h3 class="feature-card__title">Community-Centred</h3>
           <p class="feature-card__desc">Project Evan is a Community Interest Company. No ad targeting, no selling your data. Our business model is aligned with your wellbeing.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">⚡</div>
+          <div class="feature-card__icon" aria-hidden="true"><span class="material-icons">flash_on</span></div>
           <h3 class="feature-card__title">Real-Time Updates</h3>
           <p class="feature-card__desc">Live plan updates pushed instantly to all attendees. Know the moment your plans change, so no one's left wondering.</p>
         </div>
@@ -134,13 +119,13 @@
   </section>
 
   <!-- CIC BANNER -->
-  <section class="section section--alt" aria-labelledby="cic-title">
+  <section class="section" aria-labelledby="cic-title">
     <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
       <div>
         <div style="display:inline-flex;align-items:center;gap:8px;background:var(--surface-container);border:1px solid var(--outline-variant);border-radius:100px;padding:5px 14px;font-size:0.78rem;font-weight:600;color:var(--primary);margin-bottom:20px;letter-spacing:0.04em;text-transform:uppercase;">
           Community Interest Company
         </div>
-        <h2 id="cic-title" style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;color:var(--brand-primary);margin-bottom:16px;">Technology in service of people, not profit.</h2>
+        <h2 id="cic-title" style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;color:var(--primary);margin-bottom:16px;">Technology in service of people, not profit.</h2>
         <p style="color:var(--text-muted);margin-bottom:28px;">Project Evan is incorporated as a Community Interest Company (CIC). That means our purpose — improving social wellbeing — is locked into our constitution and independently regulated. Every decision we make is measured against that mission.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap;">
           <a href="commitment.html" class="btn btn--primary">Our Commitment</a>
@@ -169,10 +154,10 @@
   </section>
 
   <!-- DOWNLOAD CTA -->
-  <section class="section" style="background:linear-gradient(160deg,var(--brand-primary) 0%,var(--primary) 100%);color:#fff;" aria-labelledby="cta-title">
+  <section class="section section--alt" aria-labelledby="cta-title">
     <div class="container text-center" style="max-width:640px;">
-      <h2 id="cta-title" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:16px;">Ready to make better plans?</h2>
-      <p style="opacity:0.8;margin-bottom:40px;font-size:1.05rem;">Join thousands of people already using Project Evan to turn intentions into memories.</p>
+      <h2 id="cta-title" style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin-bottom:16px;">Ready to make better plans?</h2>
+      <p style="margin-bottom:40px;">Join thousands of people already using Project Evan to turn intentions into memories.</p>
       <div class="store-badges" style="justify-content:center;">
         <a href="#" class="store-badge" aria-label="Download on the App Store">
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -200,46 +185,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <div class="footer__logo">Project <span>Evan</span></div>
-          <p>Making plans, building friendships, and strengthening communities — protected by end-to-end encryption and grounded in social responsibility.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Product</h4>
-          <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#download">Download iOS</a></li>
-            <li><a href="#download">Download Android</a></li>
-            <li><a href="whitepaper.html">Security</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="commitment.html">Our Mission</a></li>
-            <li><a href="commitment.html#social">Social Impact</a></li>
-            <li><a href="commitment.html#governance">Governance</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="whitepaper.html">Whitepaper</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Project Evan CIC. All rights reserved.</p>
-        <span class="footer__cic">Registered Community Interest Company</span>
-      </div>
-    </div>
-  </footer>
+  <div id="site-footer"></div>
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
