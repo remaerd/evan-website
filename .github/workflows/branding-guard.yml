@@ -2,9 +2,11 @@ name: branding-guard
 
 on:
   pull_request:
+    branches: [nightly, release]
   push:
     branches:
-      - main
+      - nightly
+      - release
 
 jobs:
   branding-guard:
